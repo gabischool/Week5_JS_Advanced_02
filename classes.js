@@ -37,12 +37,53 @@ console.log("This is example result: ", fred.task());
   * destroy() // A method that returns: `${this.name} was removed from the game.`
 */
 
+
+class GameObject {
+  constructor(attributes) {
+    this.createdAd = attributes.createdAd;
+    this.name = attributes.name;
+    this.dimentions = attributes.dimentions;
+
+  }
+
+    destroy() {
+      return `${this.name} was removed from the game`
+    }
+
+}
+
+const swordsman= new GameObject ({
+  name: mastachio,
+  createdAd: new Date(),
+  dimentions: {
+    lenght: 2,
+    width: 1,
+    height: 1,
+  },
+
+
+
+})
+
+ console.log("swordsman.name", destroy());
+
 /*
   === CharacterStats ===
   * healthPoints
   * takeDamage() // A method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's method
 */
+
+
+  class CharacterStats extends GameObject {
+    constructor(attributes){
+      super(attributes){
+        this.
+      }
+    }
+
+  }
+
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
