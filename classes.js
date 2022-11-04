@@ -10,21 +10,21 @@
 
 // ++++ Example Class +++++
 
-class Employee{
-  constructor(attributes) {
-    this.name = attributes.name;
-  }
+// class Employee{
+//   constructor(attributes) {
+//     this.name = attributes.name;
+//   }
 
-  task() {
-    return `${this.name} is working on a task.`;
-  }
-}
+//   task() {
+//     return `${this.name} is working on a task.`;
+//   }
+// }
 
-const fred = new Employee({
-    name: 'Fred',
-});
+// const fred = new Employee({
+//     name: 'Fred',
+// });
 
-console.log("This is example result: ", fred.task());
+// console.log("This is example result: ", fred.task());
 
 // ++++ YOUR ASSIGNMENT STARTS HERE +++++
 
