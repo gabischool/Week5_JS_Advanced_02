@@ -47,7 +47,7 @@ class GameObject {
   }
 
     destroy() {
-      return `${this.name} was removed from the game`
+      return `${this.name} was removed from the game`;
     }
 
 }
@@ -77,13 +77,29 @@ const swordsman= new GameObject ({
 
   class CharacterStats extends GameObject {
     constructor(attributes){
-      super(attributes){
-        this.
-      }
+      super(attributes);
+        this.healthPoints = attributes.healthPoints;
+      
     }
+    takede(){
+      return   `${this.name}  bruce took damage`;
+    }
+  
+  
 
-  }
+  } 
 
+
+  const mage  = new CharacterStats({
+
+    name: "bruce",
+    healthPoints: 5,
+    team: " Mage Guild",
+    weapons: [
+      "Staff of Shamalma"
+    ],
+    language : "Common Tongue",
+  });
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -116,8 +132,7 @@ const swordsman= new GameObject ({
     team: 'Mage Guild',
     weapons: [
       'Staff of Shamalama',
-    ],
-    language: 'Common Tongue',
+    ],    language: 'Common Tongue',
   });
 
   const swordsman = new Humanoid({
@@ -144,7 +159,7 @@ const swordsman= new GameObject ({
       width: 2,
       height: 4,
     },
-    healthPoints: 10,
+    healthPoints: 10,-----------------------
     name: 'Lilith',
     team: 'Forest Kingdom',
     weapons: [
