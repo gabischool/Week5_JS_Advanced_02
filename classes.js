@@ -10,21 +10,21 @@
 
 // ++++ Example Class +++++
 
-class Employee{
-  constructor(attributes) {
-    this.name = attributes.name;
-  }
+// class Employee{
+//   constructor(attributes) {
+//     this.name = attributes.name;
+//   }
 
-  task() {
-    return `${this.name} is working on a task.`;
-  }
-}
+//   task() {
+//     return `${this.name} is working on a task.`;
+//   }
+// }
 
-const fred = new Employee({
-    name: 'Fred',
-});
+// const fred = new Employee({
+//     name: 'Fred',
+// });
 
-console.log("This is example result: ", fred.task());
+// console.log("This is example result: ", fred.task());
 
 // ++++ YOUR ASSIGNMENT STARTS HERE +++++
 
@@ -37,12 +37,45 @@ console.log("This is example result: ", fred.task());
   * destroy() // A method that returns: `${this.name} was removed from the game.`
 */
 
+
+class GameObject {
+  constructor(attributes) {
+    this.createdAt= attributes.createdAt;
+    this.name = attributes.name;
+    this.dimensions = attributes.dimensions;
+
+  }
+
+    destroy() {
+      return `${this.name} was removed from the game`;
+    }
+
+}
+
+
+
 /*
   === CharacterStats ===
   * healthPoints
   * takeDamage() // A method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's method
 */
+
+
+  class CharacterStats extends GameObject {
+    constructor(attributes){
+      super(attributes);
+        this.healthPoints = attributes.healthPoints;
+      
+    }
+    takeDamage(){
+      return   `${this.name}  took damage`;
+    }
+  
+  
+
+  } 
+
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -53,6 +86,20 @@ console.log("This is example result: ", fred.task());
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
+
+ class Humanoid extends CharacterStats{
+  constructor(attributes){
+    super(attributes);
+    this.team = attributes.team;
+    this.weapons = attributes.weapons;
+    this.language = attributes.language;
+  }
+
+
+  greet(){
+    return   ` ${this.name} offers a greening in  ${this.language}`;
+  }
+ }
  
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
@@ -62,7 +109,7 @@ console.log("This is example result: ", fred.task());
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
-/*
+
   const mage = new Humanoid({
     createdAt: new Date(),
     dimensions: {
@@ -75,8 +122,7 @@ console.log("This is example result: ", fred.task());
     team: 'Mage Guild',
     weapons: [
       'Staff of Shamalama',
-    ],
-    language: 'Common Tongue',
+    ],    language: 'Common Tongue',
   });
 
   const swordsman = new Humanoid({
@@ -123,7 +169,7 @@ console.log("This is example result: ", fred.task());
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-*/
+
 
   // Stretch task: 
   // * Create Villain and Hero class that inherit from the Humanoid class.  
