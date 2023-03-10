@@ -36,6 +36,22 @@ console.log("This is example result: ", fred.task());
   * dimensions (These represent the character's size in the video game)
   * destroy() // A method that returns: `${this.name} was removed from the game.`
 */
+class GameObject{
+  constructor(createdAt,name,dimensions){
+    this.createdAt=createdAt;
+    this.name=name;
+    this.dimensions=dimensions;
+
+    
+
+  }
+  destroy(){
+    return `${this.name} was removed from the game`;
+  }
+  
+}
+
+
 
 /*
   === CharacterStats ===
@@ -43,6 +59,24 @@ console.log("This is example result: ", fred.task());
   * takeDamage() // A method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's method
 */
+class CharacterStats extends GameObject {
+  constructor(destroy,healthPoints){
+    super(destroy);
+    this.healthpoints=healthpoints;
+
+    
+  }
+  takeDamage(){
+    
+    return `${this.name} took damage`;
+  
+  }
+}
+
+
+
+
+
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -53,7 +87,25 @@ console.log("This is example result: ", fred.task());
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
- 
+ class Humanoid extends CharacterStats {
+  constructor ( takeDamage,destroy ,team,weapons,lanuage){
+    
+    super(takeDamage);
+    super(destroy)
+    this.team=team;
+    this.weapons=weapons;
+    this.lanuage=lanuage;
+    
+  }
+    greet(){
+    
+   
+    return `${this.name} offers a greating ${this.lanuage}`
+  }
+ }
+
+
+
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
@@ -62,7 +114,7 @@ console.log("This is example result: ", fred.task());
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
-/*
+
   const mage = new Humanoid({
     createdAt: new Date(),
     dimensions: {
@@ -123,7 +175,7 @@ console.log("This is example result: ", fred.task());
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-*/
+
 
   // Stretch task: 
   // * Create Villain and Hero class that inherit from the Humanoid class.  
